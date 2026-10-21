@@ -14,11 +14,11 @@ export const site = {
   // WhatsApp format: https://wa.me/<country code + number, digits only>
   //   e.g. https://wa.me/2348012345678
   socials: [
-    { id: 'whatsapp', label: 'WhatsApp', url: 'https://wa.me/YOUR_NUMBER_WITH_COUNTRY_CODE' },
-    { id: 'instagram', label: 'Instagram', url: 'https://instagram.com/YOUR_USERNAME' },
-    { id: 'github', label: 'GitHub', url: 'https://github.com/YOUR_USERNAME' },
-    { id: 'linkedin', label: 'LinkedIn', url: 'https://www.linkedin.com/in/YOUR_USERNAME' },
-    { id: 'x', label: 'X', url: 'https://x.com/YOUR_USERNAME' },
+    { id: 'whatsapp', label: 'WhatsApp', url: 'https://wa.me/+2349045146409' },
+    { id: 'instagram', label: 'Instagram', url: 'https://www.instagram.com/not_b3njy/' },
+    { id: 'github', label: 'GitHub', url: 'https://github.com/Bentroy' },
+    { id: 'linkedin', label: 'LinkedIn', url: 'https://www.linkedin.com/in/benoz1/' },
+    { id: 'x', label: 'X', url: 'https://x.com/iam_benjy1' },
   ],
 }
 

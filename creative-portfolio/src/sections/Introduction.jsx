@@ -34,7 +34,7 @@ const details = [
   { k: 'Location', v: site.location },
   { k: 'Status', v: 'Open to work', dot: true },
   { k: 'Arrangement', v: 'Available for freelance projects' },
-  { k: 'Studying', v: 'University student, 400 level' },
+  { k: 'Studying', v: '400 level .Information and Communication Engineering' },
 ]
 
 export default function Introduction() {
@@ -155,7 +155,7 @@ export default function Introduction() {
                 concepts into digital experiences and visual work.
               </Reveal>
               <Reveal as="p" delay={0.1}>
-                I enjoy taking an idea and giving it form &mdash; whether that&rsquo;s building a website from the
+                I enjoy taking an idea and giving it form whether that&rsquo;s building a website from the
                 ground up or creating a graphic that communicates something at a glance. I&rsquo;m still learning,
                 experimenting, and pushing myself to get better with every project.
               </Reveal>

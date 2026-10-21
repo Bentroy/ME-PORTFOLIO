@@ -53,7 +53,7 @@ export const projects = [
   {
     id: 'rackcentre',
     index: '05',
-    title: 'Rack Centre Incident Logger',
+    title: 'Incident Logger',
     category: 'web',
     description: 'A web application demo for incident logging.',
     url: 'https://rackcentre-incident-logger-demo.vercel.app/',

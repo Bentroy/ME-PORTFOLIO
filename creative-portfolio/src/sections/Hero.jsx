@@ -60,7 +60,7 @@ export default function Hero() {
         transition={{ delay: 1.1 }}
       >
         <p>Portfolio</p>
-        <p className="text-bone">Frontend × Graphic</p>
+        <p className="text-bone">Frontend × Graphics</p>
       </motion.div>
 
       {canDrag && (
@@ -121,7 +121,7 @@ export default function Hero() {
           transition={{ delay: 0.9, duration: 0.8, ease }}
         >
           <p className="pointer-events-auto max-w-md text-lg leading-snug text-bone/85 md:text-xl">
-            {projects.length} web projects and {posters.length} posters so far &mdash; here&rsquo;s the work.
+            {projects.length} web projects and {posters.length} posters so far, here&rsquo;s the work.
           </p>
           <a
             href="#work"
