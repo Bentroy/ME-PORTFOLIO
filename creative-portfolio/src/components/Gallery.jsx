@@ -4,6 +4,8 @@ import { Maximize2 } from 'lucide-react'
 import Lightbox from './Lightbox'
 import { riseIn, stagger } from '../lib/motion'
 
+const tilts = [-1.4, 0.9, -0.6, 1.3, -1, 0.7]
+
 // Masonry-style columns: every image keeps its natural aspect ratio — nothing is cropped.
 // Add images in src/assets/graphic-design/ — no changes to this file needed.
 export default function Gallery({ posters }) {
@@ -21,12 +23,15 @@ export default function Gallery({ posters }) {
           <motion.li
             key={p.id}
             variants={riseIn}
-            className={`mb-3 break-inside-avoid md:mb-5 ${i % 5 === 2 ? 'md:pt-10' : ''}`}
+            style={{ rotate: tilts[i % tilts.length] }}
+            whileHover={{ rotate: 0, scale: 1.04, zIndex: 20, transition: { duration: 0.25 } }}
+            className={`relative mb-4 break-inside-avoid md:mb-7 ${i % 5 === 2 ? 'md:pt-10' : ''}`}
           >
             <button
               type="button"
               onClick={() => setActive(i)}
-              className="group relative block w-full overflow-hidden border border-line bg-coal text-left"
+              data-cursor="Enlarge"
+              className="group relative block w-full overflow-hidden border border-line bg-coal text-left transition-shadow duration-300 hover:shadow-[9px_9px_0_0_var(--color-signal)] focus-visible:shadow-[9px_9px_0_0_var(--color-signal)]"
               aria-label={`Enlarge: ${p.title}`}
               aria-haspopup="dialog"
             >

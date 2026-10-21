@@ -4,6 +4,7 @@ import { ArrowDownRight, ArrowUpRight } from 'lucide-react'
 import MaskLine from '../components/MaskLine'
 import Reveal from '../components/Reveal'
 import SocialLinks from '../components/SocialLinks'
+import Sticker from '../components/Sticker'
 import { site } from '../data/site'
 import { ease, stagger } from '../lib/motion'
 
@@ -120,6 +121,14 @@ export default function Introduction() {
                   </div>
                 )}
               </motion.div>
+              <motion.div
+                className="absolute -right-3 -top-10 z-20 md:-right-6 md:-top-12"
+                initial={{ scale: 0, rotate: -80 }}
+                animate={{ scale: 1, rotate: 0 }}
+                transition={{ type: 'spring', stiffness: 160, damping: 14, delay: 1.3 }}
+              >
+                <Sticker size={118} className="-rotate-6" />
+              </motion.div>
               <motion.p
                 className="label absolute -bottom-3 left-3 z-10 bg-ink px-3 py-2 text-[0.65rem] text-bone md:left-5"
                 initial={{ opacity: 0, y: 10 }}
@@ -159,9 +168,9 @@ export default function Introduction() {
             {/* Two disciplines, equal weight */}
             <Reveal className="mt-12 grid gap-px border border-line bg-line sm:grid-cols-2 md:mt-14">
               {disciplines.map((d) => (
-                <div key={d.title} className="bg-ink p-6">
+                <div key={d.title} className="group bg-ink p-6 transition-colors duration-300 hover:bg-signal hover:text-ink">
                   <h2 className="display text-2xl md:text-3xl">{d.title}</h2>
-                  <p className="mt-3 text-[0.95rem] leading-relaxed text-mute">{d.text}</p>
+                  <p className="mt-3 text-[0.95rem] leading-relaxed text-mute transition-colors duration-300 group-hover:text-ink/80">{d.text}</p>
                 </div>
               ))}
             </Reveal>

@@ -5,6 +5,7 @@ import SectionHeading from '../components/SectionHeading'
 import ProjectCard from '../components/ProjectCard'
 import Gallery from '../components/Gallery'
 import Reveal from '../components/Reveal'
+import HoverPreview from '../components/HoverPreview'
 import { projects } from '../data/projects'
 import { posters } from '../data/graphicDesign'
 import { ease, stagger } from '../lib/motion'
@@ -19,12 +20,14 @@ const ALL_VIEW_POSTERS = 8
 
 export default function Work() {
   const [filter, setFilter] = useState('all')
+  const [hovered, setHovered] = useState(null)
   const showWeb = filter === 'all' || filter === 'web'
   const showDesign = filter === 'all' || filter === 'design'
   const designList = filter === 'all' ? posters.slice(0, ALL_VIEW_POSTERS) : posters
 
   return (
-    <section id="work" className="px-5 py-24 md:px-10 md:py-40" aria-labelledby="work-title">
+    <section id="work" className="overflow-x-clip px-5 py-24 md:px-10 md:py-40" aria-labelledby="work-title">
+      <HoverPreview project={hovered} />
       <div className="mx-auto max-w-[1600px]">
         <SectionHeading index="02" label="Selected work" id="work-title">
           Selected<br />
@@ -96,6 +99,11 @@ export default function Work() {
                         href={p.url}
                         target="_blank"
                         rel="noopener noreferrer"
+                        data-cursor="Open"
+                        onPointerEnter={() => setHovered(p)}
+                        onPointerLeave={() => setHovered(null)}
+                        onFocus={() => setHovered(p)}
+                        onBlur={() => setHovered(null)}
                         className="group grid grid-cols-[auto_1fr_auto] items-center gap-4 py-5 transition-colors hover:text-signal md:grid-cols-[5rem_1fr_1fr_auto] md:gap-8"
                         aria-label={`${p.title} — open live site in a new tab`}
                       >

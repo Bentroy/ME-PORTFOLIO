@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { AnimatePresence, motion } from 'motion/react'
+import { AnimatePresence, motion, useMotionValueEvent, useScroll } from 'motion/react'
 import { Menu, X } from 'lucide-react'
 import { site } from '../data/site'
 import { ease } from '../lib/motion'
@@ -12,6 +12,9 @@ const links = [
 
 export default function Nav() {
   const [open, setOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
+  const { scrollY } = useScroll()
+  useMotionValueEvent(scrollY, 'change', (v) => setScrolled(v > 40))
 
   useEffect(() => {
     if (!open) return
@@ -34,7 +37,7 @@ export default function Nav() {
         Skip to content
       </a>
       <motion.header
-        className="fixed inset-x-0 top-0 z-50 mix-blend-difference"
+        className={`fixed inset-x-0 top-0 z-50 border-b transition-colors duration-300 ${scrolled ? 'border-line bg-ink/80 backdrop-blur-md' : 'border-transparent'}`}
         initial={{ y: -40, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8, ease, delay: 0.2 }}

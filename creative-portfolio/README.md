@@ -79,6 +79,15 @@ Edit **`src/data/projects.js`** and add an object:
 ### Website screenshots
 Project previews live in `public/images/web-projects/` (file names are set per project in `projects.js`). Replace a file with the same name to change a preview — no code changes needed. If a file is missing, a labelled placeholder is shown.
 
+## Interactive touches (what's in the design)
+- **Custom cursor** (mouse devices only): grows over links and shows labels like "Open", "Enlarge", "Drag". Add `data-cursor="Label"` to any element to give it one. Remove `<Cursor />` in `src/App.jsx` to disable it.
+- **Draggable hero posters** (mouse devices): grab and move them. Disabled on touch screens and for reduced-motion users.
+- **Tilted ticker bands** (`src/components/Bands.jsx`): edit the two word lists at the top of the file.
+- **Project cards** tilt toward the mouse; the project index list shows a floating screenshot on hover.
+- **Gallery prints** are slightly rotated and straighten on hover.
+- **Contact** is a full-bleed accent block with a giant wordmark; scroll progress bar at the top of the page.
+- All of it respects `prefers-reduced-motion`, and nothing is required to reach any content or link.
+
 ## Change the colours
 Open `src/index.css` and edit the tokens in `@theme` (e.g. `--color-signal: #ff4d2e;` is the accent).
 

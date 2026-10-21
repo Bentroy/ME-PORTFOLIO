@@ -11,6 +11,7 @@
   --color-bone: #f1ede4;
   --color-mute: #a09c92;
   --color-signal: #ff4d2e;
+  --color-sun: #ffd23f;
 
   --font-display: 'Instrument Sans', 'Helvetica Neue', Arial, system-ui, sans-serif;
   --font-body: 'Instrument Sans Variable', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
@@ -73,8 +74,14 @@
     .grain::after { animation: grain 1.2s steps(6) infinite; }
   }
   .marquee-track { animation: marquee 38s linear infinite; }
+  .marquee-reverse { animation-direction: reverse; }
+  .spin-slow { animation: spin-slow 18s linear infinite; }
   @media (prefers-reduced-motion: reduce) {
-    .marquee-track { animation: none; }
+    .marquee-track, .spin-slow { animation: none; }
+  }
+  /* custom cursor is only active on mouse devices; hide the native one over labelled targets */
+  @media (hover: hover) and (pointer: fine) {
+    [data-cursor] { cursor: none; }
   }
 }
 
@@ -85,6 +92,9 @@
   60% { transform: translate(-2%, -1%); }
   80% { transform: translate(3%, 3%); }
   100% { transform: translate(0, 0); }
+}
+@keyframes spin-slow {
+  to { transform: rotate(360deg); }
 }
 @keyframes marquee {
   from { transform: translateX(0); }

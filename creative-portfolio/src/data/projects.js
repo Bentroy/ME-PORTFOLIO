@@ -3,7 +3,7 @@
 //  `image`: file name inside /public/images/web-projects/
 //  (e.g. 'chidextech.jpg'). If the file is missing, a clearly
 //  labelled replaceable placeholder is shown instead.
-//  `span` / `ratio`: layout hints for the asymmetric grid.
+//  `span` / `ratio`: layout hints. Keep `ratio` at aspect-[16/9] for browser screenshots so nothing is cropped.
 // ─────────────────────────────────────────────────────────────
 export const projects = [
   {
@@ -15,7 +15,7 @@ export const projects = [
     url: 'https://chidextech-water-treatment.vercel.app/',
     image: 'chidextech.jpg',
     span: 'lg:col-span-7',
-    ratio: 'aspect-[16/10]',
+    ratio: 'aspect-[16/9]',
   },
   {
     id: 'gfsteel',
@@ -26,7 +26,7 @@ export const projects = [
     url: 'https://gfsteel.vercel.app/',
     image: 'gfsteel.jpg',
     span: 'lg:col-span-5 lg:mt-24',
-    ratio: 'aspect-[4/3]',
+    ratio: 'aspect-[16/9]',
   },
   {
     id: 'cove',
@@ -37,7 +37,7 @@ export const projects = [
     url: 'https://coveassociates.vercel.app/',
     image: 'cove-associates.jpg',
     span: 'lg:col-span-5',
-    ratio: 'aspect-[4/3]',
+    ratio: 'aspect-[16/9]',
   },
   {
     id: 'recherche',
@@ -48,7 +48,7 @@ export const projects = [
     url: 'https://rechercheevents.vercel.app/',
     image: 'recherche-events.jpg',
     span: 'lg:col-span-7 lg:mt-16',
-    ratio: 'aspect-[16/10]',
+    ratio: 'aspect-[16/9]',
   },
   {
     id: 'rackcentre',
@@ -59,7 +59,7 @@ export const projects = [
     url: 'https://rackcentre-incident-logger-demo.vercel.app/',
     image: 'rackcentre-incident-logger.jpg',
     span: 'lg:col-span-7',
-    ratio: 'aspect-[16/10]',
+    ratio: 'aspect-[16/9]',
   },
   {
     id: 'playin',
@@ -70,6 +70,6 @@ export const projects = [
     url: 'https://playinarchitecture.vercel.app/',
     image: 'playin-architecture.jpg',
     span: 'lg:col-span-5 lg:mt-20',
-    ratio: 'aspect-[4/3]',
+    ratio: 'aspect-[16/9]',
   },
 ]
