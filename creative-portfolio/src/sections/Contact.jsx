@@ -1,7 +1,8 @@
 import { motion } from 'motion/react'
 import { ArrowUpRight } from 'lucide-react'
 import Reveal from '../components/Reveal'
-import { hasRealEmail, site } from '../data/site'
+import SocialIcon from '../components/SocialIcon'
+import { hasRealEmail, isPlaceholderUrl, site } from '../data/site'
 
 export default function Contact() {
   return (
@@ -46,20 +47,26 @@ export default function Contact() {
             <p className="label text-mute">Elsewhere</p>
             <ul className="mt-4 border-t border-line">
               {site.socials.map((s) => (
-                <li key={s.label} className="border-b border-line">
-                  {s.url ? (
+                <li key={s.id} className="border-b border-line">
+                  {!isPlaceholderUrl(s.url) ? (
                     <a
                       href={s.url}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="group flex items-center justify-between py-4 hover:text-signal"
                     >
-                      <span className="display text-2xl">{s.label}</span>
+                      <span className="flex items-center gap-4">
+                        <SocialIcon id={s.id} size={22} />
+                        <span className="display text-2xl">{s.label}</span>
+                      </span>
                       <ArrowUpRight className="transition-transform group-hover:rotate-45" aria-hidden="true" />
                     </a>
                   ) : (
                     <div className="flex items-center justify-between py-4 text-mute">
-                      <span className="display text-2xl">{s.label}</span>
+                      <span className="flex items-center gap-4">
+                        <SocialIcon id={s.id} size={22} />
+                        <span className="display text-2xl">{s.label}</span>
+                      </span>
                       <span className="label text-[0.62rem]">Add link in src/data/site.js</span>
                     </div>
                   )}

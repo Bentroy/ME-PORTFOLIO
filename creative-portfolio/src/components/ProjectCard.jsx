@@ -17,8 +17,8 @@ export default function ProjectCard({ project }) {
           <div className="h-full w-full transition-transform duration-700 ease-out group-hover:scale-[1.04] group-focus-visible:scale-[1.04] motion-reduce:transition-none motion-reduce:group-hover:scale-100">
             <PreviewImage project={project} />
           </div>
-          <span className="label absolute left-3 top-3 bg-ink px-2 py-1 text-bone">{project.index}</span>
-          <span className="absolute right-3 top-3 grid h-11 w-11 place-items-center bg-signal text-ink transition-transform duration-300 group-hover:rotate-45 group-focus-visible:rotate-45 motion-reduce:transition-none">
+          <span className="label absolute bottom-3 left-3 bg-ink px-2 py-1 text-bone">{project.index}</span>
+          <span className="absolute bottom-3 right-3 grid h-11 w-11 place-items-center bg-signal text-ink transition-transform duration-300 group-hover:rotate-45 group-focus-visible:rotate-45 motion-reduce:transition-none">
             <ArrowUpRight size={20} aria-hidden="true" />
           </span>
         </div>

@@ -15,7 +15,7 @@ export const projects = [
     url: 'https://chidextech-water-treatment.vercel.app/',
     image: 'chidextech.jpg',
     span: 'lg:col-span-7',
-    ratio: 'aspect-[4/3]',
+    ratio: 'aspect-[16/10]',
   },
   {
     id: 'gfsteel',
@@ -26,7 +26,7 @@ export const projects = [
     url: 'https://gfsteel.vercel.app/',
     image: 'gfsteel.jpg',
     span: 'lg:col-span-5 lg:mt-24',
-    ratio: 'aspect-[4/5]',
+    ratio: 'aspect-[4/3]',
   },
   {
     id: 'cove',
@@ -37,7 +37,7 @@ export const projects = [
     url: 'https://coveassociates.vercel.app/',
     image: 'cove-associates.jpg',
     span: 'lg:col-span-5',
-    ratio: 'aspect-[4/5]',
+    ratio: 'aspect-[4/3]',
   },
   {
     id: 'recherche',
@@ -58,8 +58,8 @@ export const projects = [
     description: 'A web application demo for incident logging.',
     url: 'https://rackcentre-incident-logger-demo.vercel.app/',
     image: 'rackcentre-incident-logger.jpg',
-    span: 'lg:col-span-8',
-    ratio: 'aspect-[16/9]',
+    span: 'lg:col-span-7',
+    ratio: 'aspect-[16/10]',
   },
   {
     id: 'playin',
@@ -69,7 +69,7 @@ export const projects = [
     description: 'An architecture-focused website.',
     url: 'https://playinarchitecture.vercel.app/',
     image: 'playin-architecture.jpg',
-    span: 'lg:col-span-4 lg:mt-20',
-    ratio: 'aspect-[3/4]',
+    span: 'lg:col-span-5 lg:mt-20',
+    ratio: 'aspect-[4/3]',
   },
 ]

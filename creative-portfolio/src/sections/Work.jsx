@@ -26,7 +26,7 @@ export default function Work() {
   return (
     <section id="work" className="px-5 py-24 md:px-10 md:py-40" aria-labelledby="work-title">
       <div className="mx-auto max-w-[1600px]">
-        <SectionHeading index="01" label="Selected work" id="work-title">
+        <SectionHeading index="02" label="Selected work" id="work-title">
           Selected<br />
           <span className="outline-text">Work</span>
         </SectionHeading>

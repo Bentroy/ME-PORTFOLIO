@@ -5,8 +5,8 @@ import { site } from '../data/site'
 import { ease } from '../lib/motion'
 
 const links = [
-  { href: '#work', label: 'Work' },
   { href: '#about', label: 'About' },
+  { href: '#work', label: 'Work' },
   { href: '#contact', label: 'Contact' },
 ]
 

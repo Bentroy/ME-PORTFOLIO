@@ -1,20 +1,26 @@
 // ─────────────────────────────────────────────────────────────
-//  SITE SETTINGS — edit your name, email and social links here.
+//  SITE SETTINGS — name, email, location and social links.
+//  Everything here is used across the whole site.
 // ─────────────────────────────────────────────────────────────
 export const site = {
   name: 'BENJY',
   fullName: 'Owuzechi David Benjamin',
-  // Replace with your real address, e.g. 'hello@yourdomain.com'.
-  // While it still contains "YOUR", the mailto link is shown as a placeholder.
-  email: 'hello@YOUR-DOMAIN.com',
-  // Set `url` to a real address to activate a link. Leave '' to show it as a placeholder.
+  email: 'workwithbenjy@gmail.com',
+  location: 'Nigeria',
+
+  // ── SOCIAL LINKS ──────────────────────────────────────────
+  // Replace each placeholder URL with your real one. While a URL still
+  // contains "YOUR", the icon shows as a dimmed, non-clickable placeholder.
+  // WhatsApp format: https://wa.me/<country code + number, digits only>
+  //   e.g. https://wa.me/2348012345678
   socials: [
-    { label: 'Instagram', url: '' },
-    { label: 'Behance', url: '' },
-    { label: 'GitHub', url: '' },
-    { label: 'LinkedIn', url: '' },
+    { id: 'whatsapp', label: 'WhatsApp', url: 'https://wa.me/YOUR_NUMBER_WITH_COUNTRY_CODE' },
+    { id: 'instagram', label: 'Instagram', url: 'https://instagram.com/YOUR_USERNAME' },
+    { id: 'github', label: 'GitHub', url: 'https://github.com/YOUR_USERNAME' },
+    { id: 'linkedin', label: 'LinkedIn', url: 'https://www.linkedin.com/in/YOUR_USERNAME' },
+    { id: 'x', label: 'X', url: 'https://x.com/YOUR_USERNAME' },
   ],
-  location: '[YOUR LOCATION]',
 }
 
 export const hasRealEmail = !/YOUR/i.test(site.email)
+export const isPlaceholderUrl = (url) => !url || /YOUR/i.test(url)

@@ -22,32 +22,32 @@ public/
   images/web-projects/      ← drop website screenshots here
 src/
   assets/graphic-design/    ← drop poster images here (auto-detected)
+  assets/about/             ← your portrait (portrait.webp / .jpg / .png)
   components/               shared components (Nav, Gallery, Lightbox, …)
-  sections/                 Hero, Work, About, Contact
+  sections/                 Introduction (About), Hero, Work, Contact
   data/
-    site.js                 your name, email, social links
+    site.js                 your name, email, location, social links
     projects.js             web projects
     graphicDesign.js        poster titles/descriptions (optional metadata)
   lib/motion.js             shared animation variants
   index.css                 Tailwind import + design tokens (colours, fonts)
 ```
 
-## Cinematic intro
-`src/components/Intro.jsx` plays before the homepage (~4s, then a curtain-lift transition into the hero).
-- **Replace your photo:** put an image named `portrait.webp` (or `.jpg` / `.jpeg` / `.png` / `.avif`) in `src/assets/intro/`. Delete the old `portrait.*` first so only one exists. Portrait orientation works best (shown at 4:5, cropped from the top).
-- **Edit the text:** the intro line and wordmark are inside `Intro.jsx`; the name comes from `src/data/site.js`.
-- **Timing:** change `INTRO_DURATION` (milliseconds) at the top of `Intro.jsx`.
-- **Behaviour:** plays once per browser session (`sessionStorage`), has a "Skip intro" button (Esc also skips), and is skipped automatically for reduced-motion users or when the URL has a `#section`. To replay it, open a new tab/session or clear `portfolio-intro-seen` in sessionStorage. To disable it entirely, remove `<Intro />` from `src/App.jsx`.
+## The personal introduction (first section)
+`src/sections/Introduction.jsx` is the permanent About / personal intro at the very top of the page (it stays on the page — it is not a splash screen). The anchors `#top` and `#about` both point to it. The "I build websites…" hero follows it, then Work, then Contact.
+- **Replace your photo:** put an image named `portrait.webp` (or `.jpg` / `.jpeg` / `.png` / `.avif`) in `src/assets/about/`. Delete the old `portrait.*` first so only one exists. Portrait orientation works best (shown at 4:5, cropped from the top).
+- **Edit the copy:** the paragraphs, disciplines and details list are at the top/bottom of `Introduction.jsx`.
+- **Availability:** the "Open to work" status and "Available for freelance projects" rows are in the `details` array in `Introduction.jsx`.
 
 ## Update your name, email and social links
 Edit **`src/data/site.js`**:
 - `name` — your display name (currently `BENJY`); used in the nav, hero, intro and footer
 - `fullName` — shown in the About section
-- `email` — once it no longer contains `YOUR`, it becomes a working `mailto:` link
-- `socials` — set each `url`; entries with an empty `url` show as "add link" placeholders
+- `email` — currently `workwithbenjy@gmail.com`; used for every `mailto:` link
+- `socials` — WhatsApp, Instagram, GitHub, LinkedIn and X. Replace each placeholder URL (anything containing `YOUR`); placeholders show as dimmed, non-clickable icons until you do. WhatsApp format: `https://wa.me/2348012345678` (country code + number, digits only)
 - `location` — shown in the About section and mobile menu
 
-Also change the `<title>` in `index.html`, and the "About" copy in `src/sections/About.jsx` (items in `[BRACKETS]` are placeholders).
+Also check the `<title>` and description in `index.html`.
 
 ## Replace or add poster images
 1. Put image files in **`src/assets/graphic-design/`** (`.webp .jpg .jpeg .png .avif`).
@@ -77,7 +77,7 @@ Edit **`src/data/projects.js`** and add an object:
 ```
 
 ### Website screenshots
-Screenshots of the live sites could **not** be captured while building (the build environment had no access to `*.vercel.app`), so each project shows a clearly labelled **"Preview placeholder"**. To replace one, save a screenshot into `public/images/web-projects/` using the file name in `projects.js` (e.g. `chidextech.jpg`, `gfsteel.jpg`, `cove-associates.jpg`, `recherche-events.jpg`, `rackcentre-incident-logger.jpg`, `playin-architecture.jpg`). It is picked up automatically — no code changes.
+Project previews live in `public/images/web-projects/` (file names are set per project in `projects.js`). Replace a file with the same name to change a preview — no code changes needed. If a file is missing, a labelled placeholder is shown.
 
 ## Change the colours
 Open `src/index.css` and edit the tokens in `@theme` (e.g. `--color-signal: #ff4d2e;` is the accent).
@@ -93,7 +93,7 @@ vercel --prod   # production
 ```
 
 ## Verification notes
-The production build (`npm run build`) was run successfully, and the site was exercised in headless Chromium at 1440px and 390px widths: no horizontal overflow, working filters, lightbox open/close (Escape), and mobile menu. It has **not** been tested on real devices, in Safari/Firefox, or with a screen reader. Live-site links were not opened during the build (no network access to them from that environment).
+The production build (`npm run build`) runs cleanly, and the site was exercised in headless Chromium at desktop (1440px), tablet (820px) and mobile (390px) widths: no horizontal overflow, filters and lightbox working, all six project previews loading. It has **not** been tested on real devices, in Safari/Firefox, or with a screen reader. The live project sites were not opened during the build (no network access to them from that environment); the previews are your supplied screenshots.
 
 ## Accessibility & motion
 Semantic landmarks, skip link, visible focus states, keyboard-operable gallery/lightbox (Esc closes, ←/→ navigate, focus is trapped and restored), descriptive alt text, and `prefers-reduced-motion` respected via Motion's `MotionConfig` plus CSS media queries. External links use `target="_blank" rel="noopener noreferrer"`.

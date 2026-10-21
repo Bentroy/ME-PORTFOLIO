@@ -2,6 +2,7 @@ import { motion, useMotionValue, useReducedMotion, useSpring, useTransform } fro
 import { ArrowDown } from 'lucide-react'
 import MaskLine from '../components/MaskLine'
 import { posters } from '../data/graphicDesign'
+import { projects } from '../data/projects'
 import { ease, stagger } from '../lib/motion'
 import { site } from '../data/site'
 
@@ -33,7 +34,7 @@ export default function Hero() {
 
   return (
     <section
-      id="top"
+      id="hero"
       className="relative flex min-h-[100svh] flex-col justify-end overflow-hidden px-5 pb-10 pt-28 md:px-10 md:pb-14"
       onPointerMove={onMove}
       aria-labelledby="hero-title"
@@ -69,7 +70,7 @@ export default function Hero() {
           {site.name} — Creative developer & graphic designer
         </motion.p>
 
-        <motion.h1
+        <motion.h2
           id="hero-title"
           className="display text-[clamp(3.4rem,17vw,7rem)] sm:text-[clamp(4rem,18vw,11rem)] lg:text-[11.5vw] 2xl:text-[13rem]"
           variants={stagger}
@@ -81,7 +82,7 @@ export default function Hero() {
           <MaskLine delay={0.45}>
             Craft<span className="text-signal">.</span>
           </MaskLine>
-        </motion.h1>
+        </motion.h2>
 
         <motion.div
           className="mt-8 flex flex-col gap-8 md:mt-12 md:flex-row md:items-end md:justify-between"
@@ -90,8 +91,7 @@ export default function Hero() {
           transition={{ delay: 0.9, duration: 0.8, ease }}
         >
           <p className="max-w-md text-lg leading-snug text-bone/85 md:text-xl">
-            I build websites that work hard and posters that stop the scroll — two disciplines, one
-            obsessive eye for detail.
+            {projects.length} web projects and {posters.length} posters so far &mdash; here&rsquo;s the work.
           </p>
           <a
             href="#work"
