@@ -17,27 +17,45 @@ export default function Cursor() {
   useEffect(() => {
     if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return
     setEnabled(true)
-    const move = (e) => {
-      x.set(e.clientX)
-      y.set(e.clientY)
-      setVisible(true)
-      const t = e.target
+    document.documentElement.classList.add('custom-cursor')
+    let last = null
+    let raf = 0
+    const inspect = (t) => {
       if (!(t instanceof Element)) return
       const c = t.closest('[data-cursor]')
       setLabel(c ? c.getAttribute('data-cursor') : '')
       setGrow(!c && !!t.closest('a, button, [role="button"], input, textarea, select'))
     }
+    const move = (e) => {
+      last = { x: e.clientX, y: e.clientY }
+      x.set(e.clientX)
+      y.set(e.clientY)
+      setVisible(true)
+      inspect(e.target)
+    }
+    // The page can scroll under a still mouse — re-check what is under the pointer.
+    const onScroll = () => {
+      if (!last || raf) return
+      raf = requestAnimationFrame(() => {
+        raf = 0
+        inspect(document.elementFromPoint(last.x, last.y))
+      })
+    }
     const leave = () => setVisible(false)
     window.addEventListener('pointermove', move, { passive: true })
+    window.addEventListener('scroll', onScroll, { passive: true })
     document.documentElement.addEventListener('pointerleave', leave)
     return () => {
       window.removeEventListener('pointermove', move)
+      window.removeEventListener('scroll', onScroll)
+      cancelAnimationFrame(raf)
       document.documentElement.removeEventListener('pointerleave', leave)
+      document.documentElement.classList.remove('custom-cursor')
     }
   }, [x, y])
 
   if (!enabled) return null
-  const size = label ? 92 : grow ? 44 : 14
+  const size = label ? 92 : grow ? 48 : 18
   return (
     <motion.div aria-hidden="true" className="pointer-events-none fixed left-0 top-0 z-[95]" style={{ x: sx, y: sy }}>
       <motion.div
